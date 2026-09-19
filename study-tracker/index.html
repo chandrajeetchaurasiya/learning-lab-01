@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="StudyTrack is a personal study productivity dashboard for tracking study sessions, managing tasks, monitoring goals, and understanding study habits."
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+
+    <meta
+        name="color-scheme"
+        content="light dark"
+    >
+
+    <title>StudyTrack — Plan. Track. Improve.</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         SKIP LINK
+         Helps keyboard and screen-reader users jump directly
+         to the main content.
+         ========================================================= -->
+    <a class="skip-link" href="#main">
+        Skip to main content
+    </a>
+
+
+    <!-- =========================================================
+         MOBILE TOP BAR
+         ========================================================= -->
+    <header class="topbar" aria-label="Mobile navigation">
+
+        <button
+            class="icon-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="sidebar"
+        >
+            <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+
+        <a
+            class="topbar-brand"
+            href="#"
+            aria-label="StudyTrack dashboard"
+            data-page-link="dashboard"
+        >
+            <span class="brand-mark" aria-hidden="true">ST</span>
+
+            <span class="brand-name">
+                StudyTrack
+            </span>
+        </a>
+
+    </header>
+
+
+    <!-- Mobile navigation overlay -->
+    <button
+        class="nav-overlay"
+        id="navOverlay"
+        type="button"
+        hidden
+        aria-label="Close navigation menu"
+    ></button>
+
+
+    <!-- =========================================================
+         APPLICATION LAYOUT
+         ========================================================= -->
+    <div class="layout">
+
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+        <aside
+            class="sidebar"
+            id="sidebar"
+            aria-label="StudyTrack sidebar"
+        >
+
+            <!-- Brand -->
+            <div class="brand">
+
+                <span
+                    class="brand-mark"
+                    aria-hidden="true"
+                >
+                    ST
+                </span>
+
+                <div class="brand-text">
+                    <strong>StudyTrack</strong>
+                    <small>Plan. Track. Improve.</small>
+                </div>
+
+            </div>
+
+
+            <!-- Main navigation -->
+            <nav
+                class="nav"
+                aria-label="Main navigation"
+            >
+
+                <button
+                    class="nav-link is-active"
+                    type="button"
+                    data-page="dashboard"
+                    aria-current="page"
+                >
+                    <span aria-hidden="true">⌂</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button
+                    class="nav-link"
+                    type="button"
+                    data-page="sessions"
+                >
+                    <span aria-hidden="true">◷</span>
+                    <span>Study Sessions</span>
+                </button>
+
+                <button
+                    class="nav-link"
+                    type="button"
+                    data-page="tasks"
+                >
+                    <span aria-hidden="true">✓</span>
+                    <span>Tasks</span>
+                </button>
+
+                <button
+                    class="nav-link"
+                    type="button"
+                    data-page="analytics"
+                >
+                    <span aria-hidden="true">▥</span>
+                    <span>Analytics</span>
+                </button>
+
+                <button
+                    class="nav-link"
+                    type="button"
+                    data-page="settings"
+                >
+                    <span aria-hidden="true">⚙</span>
+                    <span>Settings</span>
+                </button>
+
+            </nav>
+
+
+            <!-- Sidebar information -->
+            <div class="sidebar-foot">
+
+                <p class="sidebar-note">
+                    <span aria-hidden="true">🔒</span>
+                    Your data stays in this browser.
+                </p>
+
+                <p class="sidebar-note">
+                    No account required.
+                </p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+        <main
+            class="main"
+            id="main"
+            tabindex="-1"
+        >
+
+
+            <!-- =================================================
+                 DASHBOARD
+                 ================================================= -->
+            <section
+                class="page is-active"
+                id="page-dashboard"
+                aria-labelledby="dashboardHeading"
+            >
+
+                <!-- Page heading -->
+                <header class="page-head">
+
+                    <div>
+                        <p class="eyebrow">Your study overview</p>
+
+                        <h1 id="dashboardHeading">
+                            Good Morning, Student 👋
+                        </h1>
+
+                        <p
+                            class="page-sub"
+                            id="todayDate"
+                        >
+                            Loading date…
+                        </p>
+                    </div>
+
+                    <p
+                        class="streak-chip"
+                        id="streakChip"
+                        aria-label="Current study streak"
+                    >
+                        🔥 0 Day Study Streak
+                    </p>
+
+                </header>
+
+
+                <!-- =================================================
+                     QUICK STATS
+                     ================================================= -->
+                <section
+                    class="stat-grid"
+                    aria-label="Today's study statistics"
+                >
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Today's Study
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statTodayHours"
+                            aria-live="polite"
+                        >
+                            0 hrs
+                        </p>
+
+                        <p
+                            class="stat-hint"
+                            id="statSessionCount"
+                        >
+                            No sessions logged today
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Daily Target
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statTarget"
+                        >
+                            9 hrs
+                        </p>
+
+                        <p class="stat-hint">
+                            Change it in Settings
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Progress
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statProgress"
+                            aria-live="polite"
+                        >
+                            0%
+                        </p>
+
+                        <p
+                            class="stat-hint"
+                            id="statRemaining"
+                        >
+                            9 hrs left today
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Tasks Completed
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statTasksRatio"
+                            aria-live="polite"
+                        >
+                            0 / 0
+                        </p>
+
+                        <p
+                            class="stat-hint"
+                            id="statTasksHint"
+                        >
+                            No tasks added yet
+                        </p>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================================
+                     DAILY PROGRESS
+                     ================================================= -->
+                <section
+                    class="card"
+                    aria-labelledby="progressHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+                            <p class="card-kicker">
+                                Daily goal
+                            </p>
+
+                            <h2 id="progressHeading">
+                                Today's Progress
+                            </h2>
+                        </div>
+
+                        <p
+                            class="card-meta"
+                            id="progressText"
+                        >
+                            0 / 9 hours
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="progress-track"
+                        id="progressBar"
+                        role="progressbar"
+                        aria-labelledby="progressHeading"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="0"
+                    >
+
+                        <div
+                            class="progress-fill"
+                            id="progressFill"
+                        ></div>
+
+                    </div>
+
+
+                    <p
+                        class="progress-caption"
+                        id="progressCaption"
+                        aria-live="polite"
+                    >
+                        Log your first session to start today's progress.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     QUICK ACTIONS
+                     ================================================= -->
+                <section
+                    class="card quick-actions-card"
+                    aria-labelledby="quickActionsHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+                            <p class="card-kicker">
+                                Shortcuts
+                            </p>
+
+                            <h2 id="quickActionsHeading">
+                                Quick Actions
+                            </h2>
+                        </div>
+
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <button
+                            class="button button-primary"
+                            type="button"
+                            id="dashboardAddSessionBtn"
+                            data-page-action="add-session"
+                        >
+                            + Add study session
+                        </button>
+
+                        <button
+                            class="button button-outline"
+                            type="button"
+                            id="dashboardAddTaskBtn"
+                            data-page-action="add-task"
+                        >
+                            + Add task
+                        </button>
+
+                        <button
+                            class="button button-ghost"
+                            type="button"
+                            id="dashboardViewAnalyticsBtn"
+                            data-page-action="analytics"
+                        >
+                            View analytics →
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     QUICK ADD SESSION
+                     ================================================= -->
+                <section
+                    class="card"
+                    aria-labelledby="sessionFormHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+                            <p class="card-kicker">
+                                Study log
+                            </p>
+
+                            <h2 id="sessionFormHeading">
+                                Quick add session
+                            </h2>
+                        </div>
+
+                        <button
+                            class="button button-ghost"
+                            type="button"
+                            id="sessionCancelBtn"
+                            hidden
+                        >
+                            Cancel edit
+                        </button>
+
+                    </div>
+
+
+                    <form
+                        id="sessionForm"
+                        novalidate
+                    >
+
+                        <div class="form-grid">
+
+
+                            <!-- Subject -->
+                            <div class="field">
+
+                                <label for="sessionSubject">
+                                    Subject
+                                </label>
+
+                                <select
+                                    id="sessionSubject"
+                                    name="subject"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Choose a subject
+                                    </option>
+
+                                    <option value="Java / DSA">
+                                        Java / DSA
+                                    </option>
+
+                                    <option value="Aptitude">
+                                        Aptitude
+                                    </option>
+
+                                    <option value="English">
+                                        English
+                                    </option>
+
+                                    <option value="College Work">
+                                        College Work
+                                    </option>
+
+                                    <option value="Web Development">
+                                        Web Development
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Topic -->
+                            <div class="field">
+
+                                <label for="sessionTopic">
+                                    Topic
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="sessionTopic"
+                                    name="topic"
+                                    maxlength="80"
+                                    autocomplete="off"
+                                    placeholder="Arrays and sorting"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Date -->
+                            <div class="field">
+
+                                <label for="sessionDate">
+                                    Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="sessionDate"
+                                    name="date"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Start -->
+                            <div class="field">
+
+                                <label for="sessionStart">
+                                    Start time
+                                </label>
+
+                                <input
+                                    type="time"
+                                    id="sessionStart"
+                                    name="startTime"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- End -->
+                            <div class="field">
+
+                                <label for="sessionEnd">
+                                    End time
+                                </label>
+
+                                <input
+                                    type="time"
+                                    id="sessionEnd"
+                                    name="endTime"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Duration -->
+                            <div class="field">
+
+                                <span class="field-label">
+                                    Duration
+                                </span>
+
+                                <output
+                                    class="duration-output"
+                                    id="sessionDuration"
+                                    for="sessionStart sessionEnd"
+                                    aria-live="polite"
+                                >
+                                    —
+                                </output>
+
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            class="form-error"
+                            id="sessionError"
+                            role="alert"
+                            hidden
+                        ></p>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                class="button button-primary"
+                                type="submit"
+                                id="sessionSubmitBtn"
+                            >
+                                Add session
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STUDY SESSIONS
+                 ================================================= -->
+            <section
+                class="page"
+                id="page-sessions"
+                aria-labelledby="sessionsHeading"
+                hidden
+            >
+
+                <header class="page-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Your study history
+                        </p>
+
+                        <h1 id="sessionsHeading">
+                            Study Sessions
+                        </h1>
+
+                        <p class="page-sub">
+                            Review, search, edit, and manage every study session.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button button-primary"
+                        type="button"
+                        id="goToFormBtn"
+                    >
+                        + Add session
+                    </button>
+
+                </header>
+
+
+                <!-- Filters -->
+                <section
+                    class="card"
+                    aria-labelledby="filterHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Find a session
+                            </p>
+
+                            <h2 id="filterHeading">
+                                Search & Filters
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="filter-grid">
+
+                        <div class="field">
+
+                            <label for="searchInput">
+                                Search topic or subject
+                            </label>
+
+                            <input
+                                type="search"
+                                id="searchInput"
+                                autocomplete="off"
+                                placeholder="e.g. recursion"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="filterSubject">
+                                Subject
+                            </label>
+
+                            <select id="filterSubject">
+
+                                <option value="">
+                                    All subjects
+                                </option>
+
+                                <option value="Java / DSA">
+                                    Java / DSA
+                                </option>
+
+                                <option value="Aptitude">
+                                    Aptitude
+                                </option>
+
+                                <option value="English">
+                                    English
+                                </option>
+
+                                <option value="College Work">
+                                    College Work
+                                </option>
+
+                                <option value="Web Development">
+                                    Web Development
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="filterDate">
+                                Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="filterDate"
+                            >
+
+                        </div>
+
+
+                        <div class="field field-end">
+
+                            <button
+                                class="button button-ghost"
+                                type="button"
+                                id="clearFiltersBtn"
+                            >
+                                Clear filters
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Session table -->
+                <section
+                    class="card"
+                    aria-labelledby="sessionListHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Activity history
+                            </p>
+
+                            <h2 id="sessionListHeading">
+                                All Sessions
+                            </h2>
+
+                        </div>
+
+                        <p
+                            class="card-meta"
+                            id="sessionSummary"
+                            aria-live="polite"
+                        >
+                            0 sessions
+                        </p>
+
+                    </div>
+
+
+                    <div class="table-wrap">
+
+                        <table
+                            class="data-table"
+                            id="sessionTable"
+                        >
+
+                            <caption class="visually-hidden">
+                                Recorded study sessions with date, subject,
+                                topic, start time, end time, duration and actions.
+                            </caption>
+
+                            <thead>
+
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Subject</th>
+                                    <th scope="col">Topic</th>
+                                    <th scope="col">Start</th>
+                                    <th scope="col">End</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="sessionTableBody"></tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <p
+                        class="empty-state"
+                        id="sessionEmpty"
+                    >
+                        No study sessions yet.
+                        Add your first session to start tracking your progress.
+                    </p>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TASKS
+                 ================================================= -->
+            <section
+                class="page"
+                id="page-tasks"
+                aria-labelledby="tasksHeading"
+                hidden
+            >
+
+                <header class="page-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Plan your work
+                        </p>
+
+                        <h1 id="tasksHeading">
+                            Tasks
+                        </h1>
+
+                        <p class="page-sub">
+                            Break your study plan into small, finishable pieces.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <!-- Task statistics -->
+                <section
+                    class="stat-grid stat-grid-three"
+                    aria-label="Task statistics"
+                >
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Total Tasks
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statTotalTasks"
+                            aria-live="polite"
+                        >
+                            0
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Completed
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statDoneTasks"
+                            aria-live="polite"
+                        >
+                            0
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Pending
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statPendingTasks"
+                            aria-live="polite"
+                        >
+                            0
+                        </p>
+
+                    </article>
+
+                </section>
+
+
+                <!-- Add task -->
+                <section
+                    class="card"
+                    aria-labelledby="taskFormHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Task planning
+                            </p>
+
+                            <h2 id="taskFormHeading">
+                                Add a Task
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        id="taskForm"
+                        novalidate
+                    >
+
+                        <div class="form-grid">
+
+                            <div class="field field-wide">
+
+                                <label for="taskTitle">
+                                    Task
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="taskTitle"
+                                    maxlength="90"
+                                    autocomplete="off"
+                                    placeholder="Revise linked lists"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="taskSubject">
+                                    Subject
+                                </label>
+
+                                <select
+                                    id="taskSubject"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Choose a subject
+                                    </option>
+
+                                    <option value="Java / DSA">
+                                        Java / DSA
+                                    </option>
+
+                                    <option value="Aptitude">
+                                        Aptitude
+                                    </option>
+
+                                    <option value="English">
+                                        English
+                                    </option>
+
+                                    <option value="College Work">
+                                        College Work
+                                    </option>
+
+                                    <option value="Web Development">
+                                        Web Development
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="taskPriority">
+                                    Priority
+                                </label>
+
+                                <select id="taskPriority">
+
+                                    <option value="Low">
+                                        Low
+                                    </option>
+
+                                    <option
+                                        value="Medium"
+                                        selected
+                                    >
+                                        Medium
+                                    </option>
+
+                                    <option value="High">
+                                        High
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            class="form-error"
+                            id="taskError"
+                            role="alert"
+                            hidden
+                        ></p>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                class="button button-primary"
+                                type="submit"
+                            >
+                                + Add task
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- Task list -->
+                <section
+                    class="card"
+                    aria-labelledby="taskListHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Your workload
+                            </p>
+
+                            <h2 id="taskListHeading">
+                                Your Tasks
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <ul
+                        class="task-list"
+                        id="taskList"
+                        aria-live="polite"
+                    ></ul>
+
+
+                    <p
+                        class="empty-state"
+                        id="taskEmpty"
+                    >
+                        No tasks added yet.
+                        Add one above to plan your next study block.
+                    </p>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ANALYTICS
+                 ================================================= -->
+            <section
+                class="page"
+                id="page-analytics"
+                aria-labelledby="analyticsHeading"
+                hidden
+            >
+
+                <header class="page-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Understand your habits
+                        </p>
+
+                        <h1 id="analyticsHeading">
+                            Analytics
+                        </h1>
+
+                        <p class="page-sub">
+                            See where your study time goes and how consistently
+                            you are studying.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <!-- Weekly chart -->
+                <section
+                    class="card"
+                    aria-labelledby="weeklyHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Current week
+                            </p>
+
+                            <h2 id="weeklyHeading">
+                                Weekly Study Hours
+                            </h2>
+
+                        </div>
+
+                        <p
+                            class="card-meta"
+                            id="weeklyRange"
+                        >
+                            This week
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="chart"
+                        id="weeklyChart"
+                        role="img"
+                        aria-label="Weekly study hours chart"
+                    ></div>
+
+
+                    <p
+                        class="empty-state"
+                        id="weeklyEmpty"
+                        hidden
+                    >
+                        Start recording study sessions to see your weekly
+                        analytics.
+                    </p>
+
+                </section>
+
+
+                <!-- Subject distribution -->
+                <section
+                    class="card"
+                    aria-labelledby="subjectHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                All recorded sessions
+                            </p>
+
+                            <h2 id="subjectHeading">
+                                Subject Distribution
+                            </h2>
+
+                        </div>
+
+                        <p class="card-meta">
+                            All time
+                        </p>
+
+                    </div>
+
+
+                    <ul
+                        class="subject-list"
+                        id="subjectList"
+                        aria-label="Study hours by subject"
+                    ></ul>
+
+
+                    <p
+                        class="empty-state"
+                        id="subjectEmpty"
+                        hidden
+                    >
+                        No subject data yet.
+                        Log a session and it will appear here.
+                    </p>
+
+                </section>
+
+
+                <!-- Analytics summary -->
+                <section
+                    class="stat-grid"
+                    aria-label="Study analytics summary"
+                >
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Total Study Hours
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statTotalHours"
+                        >
+                            0 hrs
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Average Per Study Day
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statAvgHours"
+                        >
+                            0 hrs
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Most Studied Subject
+                        </h2>
+
+                        <p
+                            class="stat-value stat-value-small"
+                            id="statTopSubject"
+                        >
+                            —
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Completed Tasks
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statTasksDone"
+                        >
+                            0
+                        </p>
+
+                    </article>
+
+
+                    <article class="card stat-card">
+
+                        <h2 class="stat-label">
+                            Current Streak
+                        </h2>
+
+                        <p
+                            class="stat-value"
+                            id="statStreak"
+                        >
+                            0 days
+                        </p>
+
+                    </article>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SETTINGS
+                 ================================================= -->
+            <section
+                class="page"
+                id="page-settings"
+                aria-labelledby="settingsHeading"
+                hidden
+            >
+
+                <header class="page-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            Personalize StudyTrack
+                        </p>
+
+                        <h1 id="settingsHeading">
+                            Settings
+                        </h1>
+
+                        <p class="page-sub">
+                            Manage your study target, appearance, and local data.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <!-- Daily target -->
+                <section
+                    class="card"
+                    aria-labelledby="targetHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Goal
+                            </p>
+
+                            <h2 id="targetHeading">
+                                Daily Study Target
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="card-text">
+                        Set the number of hours you want to study each day.
+                    </p>
+
+
+                    <form
+                        id="targetForm"
+                        novalidate
+                    >
+
+                        <div class="form-grid">
+
+                            <div class="field">
+
+                                <label for="targetInput">
+                                    Hours per day
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="targetInput"
+                                    min="0.5"
+                                    max="24"
+                                    step="0.5"
+                                    value="9"
+                                    inputmode="decimal"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            class="form-error"
+                            id="targetError"
+                            role="alert"
+                            hidden
+                        ></p>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                class="button button-primary"
+                                type="submit"
+                            >
+                                Save target
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- Theme -->
+                <section
+                    class="card"
+                    aria-labelledby="themeHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Appearance
+                            </p>
+
+                            <h2 id="themeHeading">
+                                Theme
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="theme-options"
+                        role="group"
+                        aria-labelledby="themeHeading"
+                    >
+
+                        <button
+                            class="button button-outline"
+                            type="button"
+                            data-theme-choice="light"
+                            id="lightThemeBtn"
+                            aria-pressed="true"
+                        >
+                            ☀ Light mode
+                        </button>
+
+
+                        <button
+                            class="button button-outline"
+                            type="button"
+                            data-theme-choice="dark"
+                            id="darkThemeBtn"
+                            aria-pressed="false"
+                        >
+                            ◐ Dark mode
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Data management -->
+                <section
+                    class="card"
+                    aria-labelledby="dataHeading"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <p class="card-kicker">
+                                Privacy & backup
+                            </p>
+
+                            <h2 id="dataHeading">
+                                Your Data
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="card-text">
+                        StudyTrack stores your sessions, tasks, and settings
+                        locally in this browser. Your data is not uploaded
+                        to a server.
+                    </p>
+
+
+                    <div
+                        class="data-actions"
+                        aria-label="Data management actions"
+                    >
+
+                        <button
+                            class="button button-outline"
+                            type="button"
+                            id="demoDataBtn"
+                        >
+                            Load demo data
+                        </button>
+
+
+                        <button
+                            class="button button-outline"
+                            type="button"
+                            id="exportDataBtn"
+                        >
+                            Export data
+                        </button>
+
+
+                        <button
+                            class="button button-outline"
+                            type="button"
+                            id="importDataBtn"
+                        >
+                            Import data
+                        </button>
+
+
+                        <button
+                            class="button button-danger"
+                            type="button"
+                            id="resetDataBtn"
+                        >
+                            Reset all data
+                        </button>
+
+                        <input
+                            type="file"
+                            id="importDataInput"
+                            accept=".json,application/json"
+                            hidden
+                            aria-hidden="true"
+                        >
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST NOTIFICATION
+         ========================================================= -->
+    <p
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        hidden
+    ></p>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+    <script src="script.js"></script>
+
+</body>
+</html>
