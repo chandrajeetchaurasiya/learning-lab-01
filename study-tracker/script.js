@@ -1,4 +1,4 @@
-/* ==========================================================================
+/* 
    StudyTrack — script.js
    Plain JavaScript (ES6+). No libraries, no build tools.
 
@@ -15,7 +15,7 @@
    10. Settings: target, theme, demo data, reset
    11. Navigation
    12. Start the app
-   ========================================================================== */
+    */
 
 'use strict';
 
