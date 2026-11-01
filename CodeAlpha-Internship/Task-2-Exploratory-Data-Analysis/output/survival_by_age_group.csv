@@ -1,0 +1,6 @@
+age_group,passengers,survivors,survival_rate
+Child (0-12),69,40,58.0
+Teen (13-18),70,30,42.9
+Young adult (19-35),514,184,35.8
+Adult (36-60),216,83,38.4
+Senior (60+),22,5,22.7

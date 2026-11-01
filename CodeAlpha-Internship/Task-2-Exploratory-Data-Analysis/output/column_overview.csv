@@ -1,0 +1,16 @@
+,dtype,non_null,missing,missing_%,unique
+survived,int64,891,0,0.0,2
+pclass,int64,891,0,0.0,3
+sex,str,891,0,0.0,2
+age,float64,714,177,19.9,88
+sibsp,int64,891,0,0.0,7
+parch,int64,891,0,0.0,7
+fare,float64,891,0,0.0,248
+embarked,str,889,2,0.2,3
+class,str,891,0,0.0,3
+who,str,891,0,0.0,3
+adult_male,bool,891,0,0.0,2
+deck,str,203,688,77.2,7
+embark_town,str,889,2,0.2,3
+alive,str,891,0,0.0,2
+alone,bool,891,0,0.0,2

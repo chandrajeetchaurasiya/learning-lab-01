@@ -1,0 +1,5 @@
+hypothesis,test,p_value,conclusion
+H1: survival depends on sex,Chi-square,1.20e-58,Significant difference
+H2: survival depends on class,Chi-square,4.55e-23,Significant difference
+H3: fares differ between survivors and non-survivors,Mann-Whitney U,4.55e-22,Significant difference
+H4: mean age differs between survivors and non-survivors (real ages only),Welch t-test,4.12e-02,Significant difference
