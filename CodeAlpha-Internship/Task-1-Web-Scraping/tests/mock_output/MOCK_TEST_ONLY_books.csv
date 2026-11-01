@@ -1,0 +1,16 @@
+﻿title,price_gbp,rating,in_stock,url,category,upc,stock_count
+Mock Book 0,10.5,1,True,http://127.0.0.1:8765/catalogue/book_0/index.html,Poetry,upc0000,7
+Mock Book 1,11.5,2,True,http://127.0.0.1:8765/catalogue/book_1/index.html,Travel,upc0001,7
+Mock Book 2,12.5,3,True,http://127.0.0.1:8765/catalogue/book_2/index.html,Mystery,upc0002,7
+Mock Book 3,13.5,4,True,http://127.0.0.1:8765/catalogue/book_3/index.html,Poetry,upc0003,7
+Mock Book 4,14.5,5,True,http://127.0.0.1:8765/catalogue/book_4/index.html,Travel,upc0004,7
+Mock Book 5,15.5,1,True,http://127.0.0.1:8765/catalogue/book_5/index.html,Mystery,upc0005,7
+Mock Book 6,16.5,2,True,http://127.0.0.1:8765/catalogue/book_6/index.html,Poetry,upc0006,7
+Mock Book 7,17.5,3,True,http://127.0.0.1:8765/catalogue/book_7/index.html,Travel,upc0007,7
+Mock Book 8,18.5,4,True,http://127.0.0.1:8765/catalogue/book_8/index.html,Mystery,upc0008,7
+Mock Book 9,19.5,5,True,http://127.0.0.1:8765/catalogue/book_9/index.html,Poetry,upc0009,7
+Mock Book 10,20.5,1,True,http://127.0.0.1:8765/catalogue/book_10/index.html,Travel,upc0010,7
+Mock Book 11,21.5,2,True,http://127.0.0.1:8765/catalogue/book_11/index.html,Mystery,upc0011,7
+Mock Book 12,22.5,3,True,http://127.0.0.1:8765/catalogue/book_12/index.html,Poetry,upc0012,7
+Mock Book 13,23.5,4,True,http://127.0.0.1:8765/catalogue/book_13/index.html,Travel,upc0013,7
+Mock Book 14,24.5,5,True,http://127.0.0.1:8765/catalogue/book_14/index.html,Mystery,upc0014,7

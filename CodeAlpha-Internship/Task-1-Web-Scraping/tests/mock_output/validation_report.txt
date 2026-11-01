@@ -1,0 +1,14 @@
+Rows scraped: 15
+Duplicate rows removed: 0
+Rows with missing/invalid price removed: 0
+Rows with invalid rating removed: 0
+Final rows: 15
+Missing values per column:
+  title: 0
+  price_gbp: 0
+  rating: 0
+  in_stock: 0
+  url: 0
+  category: 0
+  upc: 0
+  stock_count: 0
